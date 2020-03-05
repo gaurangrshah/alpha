@@ -26,5 +26,5 @@ module.exports = {
     },
     `gatsby-theme-boostrap-sass`,
   ],
-  "pathPrefix": "/gsdev"
+  "pathPrefix": "/alpha"
 }

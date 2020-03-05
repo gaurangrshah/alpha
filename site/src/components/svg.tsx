@@ -3,7 +3,20 @@ import React from "react"
 import { jsx } from "theme-ui"
 import { hidden } from "../styles/utils"
 
+
 const icons = {
+  drop: {
+    shape: (
+      <path d="M102, 52C102, 79.6142, 79.6142, 102, 52, 102H2V52C2, 24.3858, 24.3858, 2, 52 2C79.6142, 2, 102, 24.3858, 102, 52Z" />
+    ),
+    viewBox: `0 0 102 102`,
+  },
+  diamond: {
+    shape: (
+      <path d="M50.1213, 2.94975L93.0503, 45.8787C94.2218, 47.0503, 94.2218, 48.9497, 93.0503, 50.1213L50.1213, 93.0503C48.9497, 94.2218, 47.0503, 94.2218, 45.8787, 93.0503L2.94975, 50.1213C1.77817, 48.9497, 1.77817, 47.0503, 2.94975, 45.8787L45.8787, 2.94975C47.0503, 1.77817, 48.9497 1.77817, 50.1213, 2.94975Z" />
+    ),
+    viewBox: `0 0 100 100`,
+  },
   triangle: {
     shape: (
       <polygon
@@ -13,7 +26,7 @@ const icons = {
         points="14.921,2.27 28.667,25.5 1.175,25.5 "
       />
     ),
-    viewBox: `0 0 30 30`,
+    viewBox: `0 0 30 42`,
   },
   circle: {
     shape: (
@@ -67,7 +80,7 @@ const icons = {
   },
 }
 
-type IconType = "triangle" | "circle" | "arrowUp" | "upDown" | "box" | "hexa" | "cross"
+type IconType = "drop" | "diamond" | "triangle" | "circle" | "arrowUp" | "upDown" | "box" | "hexa" | "cross"
 
 type SVGProps = {
   stroke?: boolean

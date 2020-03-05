@@ -7,13 +7,16 @@ import SVG from "./svg"
 import { UpDown, UpDownWide } from "../styles/animations"
 // @ts-ignore
 import Intro from "../sections/intro"
+import { Test3 } from "../components/Test3"
+import { Tagline } from "../components/Tagline"
 
 const Hero = ({ offset }: { offset: number }) => (
   <div>
     <Divider speed={0.2} offset={offset}>
       <UpDown>
-        <SVG icon="triangle" hiddenMobile width={48} stroke color="icon_orange" left="10%" top="20%" />
-        <SVG icon="hexa" width={48} stroke color="icon_red" left="60%" top="70%" />
+        <SVG icon="circle" hiddenMobile width={48} color="icon_orange" left="10%" top="20%" />
+        <SVG icon="triangle" width={48} stroke color="icon_red" left="60%" top="70%" />
+        <SVG icon="diamond" width={48} stroke color="icon_red" left="70%" top="40%" />
         <SVG icon="box" width={6} color="icon_darker" left="60%" top="15%" />
       </UpDown>
       <UpDownWide>
@@ -41,6 +44,9 @@ const Hero = ({ offset }: { offset: number }) => (
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset}>
       <Inner>
         <Intro />
+        <Tagline>
+          <Test3 />
+        </Tagline>
       </Inner>
     </Content>
   </div>
