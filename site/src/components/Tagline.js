@@ -1,16 +1,17 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, Box } from 'theme-ui'
 import React from 'react'
+import { ScrollWords } from './ScrollWords'
 
-
-export const Tagline = ({ children }) => {
+export const Tagline = ({ tagline = 'We help build', scrollItems, children }) => {
+  scrollItems = !scrollItems ? [{ id: 1, text: 'test1' }, { id: 2, text: 'test2' }, { id: 3, text: 'test3' },] : scrollItems
   return (
-    <div style={{ zIndex: -3, position: 'relative' }}>
-      <span style={{ fontSize: '48px', fontWeight: 400 }}>
-        I help build
-        <span>{children}</span>
-      </span>
-    </div>
+    <Box sx={{ zIndex: -3, position: 'relative', mt: 4 }}>
+      <Box as='span' sx={{ fontSize: '48px', fontWeight: 400 }}>
+        {tagline}
+        <ScrollWords />
+      </Box>
+    </Box>
   )
 }
 
