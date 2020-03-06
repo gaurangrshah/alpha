@@ -14,7 +14,7 @@ const Hero = ({ offset }: { offset: number }) => (
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset}>
       <BrandMark offset={offset} />
       <Inner>
-        <Intro />
+        {/* <Intro /> */}
         <Tagline tagline='We help build' />
       </Inner>
     </Content>

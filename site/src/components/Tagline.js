@@ -6,7 +6,7 @@ import { ScrollWords } from './ScrollWords'
 export const Tagline = ({
   tagline = 'Tagline',
   scrollItems = [],
-  offsetLeft = '286px',
+  offsetLeft = '450px',
   children = {}
 }) => {
   scrollItems = !scrollItems ? [
@@ -15,9 +15,14 @@ export const Tagline = ({
     { id: 3, text: 'test3' },
   ] : scrollItems
   return (
-    <Box sx={{ zIndex: - 3, position: 'relative', mt: 4 }}>
-      <Box as='span' sx={{ fontSize: '48px', fontWeight: 400 }}>
-        {tagline}
+    <Box sx={{ zIndex: - 3, position: 'relative' }}>
+      <Box
+        sx={{
+          display: ['block', null, null, null, 'flex'],
+          fontSize: ['3rem', null, '4rem'],
+          fontWeight: 600
+        }}>
+        <Box>{tagline}</Box>
         <ScrollWords offsetLeft={offsetLeft} />
       </Box>
     </Box >

@@ -1,13 +1,17 @@
 import React, { useState, useRef } from 'react';
+/** @jsx jsx */
+import { jsx, Box } from 'theme-ui'
 import { useTransition, animated, config } from 'react-spring'
 import { useInterval } from '../hooks/useInterval'
 import { shortid } from '../utils'
 
 const defaultItems = [
-  { id: 1, text: 'design systems' },
+  { id: 1, text: 'user interfaces' },
   { id: 2, text: 'apps' },
-  { id: 3, text: 'businesses' },
-  { id: 4, text: 'brands' },
+  { id: 3, text: 'websites' },
+  { id: 4, text: 'businesses' },
+  { id: 5, text: 'brands' },
+  { id: 6, text: '& more' },
 ]
 
 const ITERATION_COUNT = 120
@@ -41,24 +45,32 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
     enter: {
       transform: 'translate3d(0, 0px,0)',
       opacity: 1,
-      color: 'orange'
+      color: '#3182ce'
     },
     leave: {
-      transform: 'translate3d(0,-100px,0)',
+      transform: 'translate3d(0, -100px,0)',
       opacity: 0,
       color: 'darkGray'
     },
-    config: config.wobbly,
+    config: config.default,
   })
 
-  return transitions.map(({ item, props, key }) => {
+  return transitions.map(({ item, props: { position, left, ...rest }, key }) => {
 
     return (
-      <span>
-        <animated.span className='item-roll' key={key} style={props}>
+
+      <animated.span key={key} style={rest}>
+        <Box
+          sx={{
+            position: ['absolute'],
+            pl: 3,
+            width: ['lg', null, null, 'xl'],
+          }}
+        >
           {item.text}
-        </animated.span>
-      </span>
+        </Box>
+      </animated.span>
+
     )
   })
 
