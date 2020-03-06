@@ -62,6 +62,7 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
       <animated.span key={key} style={rest}>
         <Box
           sx={{
+            textShadow: 'neuDarkSm',
             position: ['absolute'],
             pl: 3,
             width: ['lg', null, null, 'xl'],

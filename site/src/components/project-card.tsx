@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from "react"
 import { jsx } from "theme-ui"
-import { useSpring, animated } from "react-spring"
 
 type ProjectCardProps = {
   link: string
@@ -12,17 +11,12 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => {
 
-  const props = useSpring({
-    to: { opacity: 1, transform: 'translate3d(0, -400, 0)' },
-    config: { duration: 2000 }
-  })
-
   return (
-    <animated.a
+    <a
       href={link}
       target="_blank"
       rel="noreferrer noopener"
-      style={{ opacity: 1, ...props, }}
+      // style={{ opacity: 1 }}
       sx={{
         width: `100%`,
         boxShadow: `lg`,
@@ -54,7 +48,7 @@ const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => {
       >
         {title}
       </div>
-    </animated.a>
+    </a>
   )
 }
 
