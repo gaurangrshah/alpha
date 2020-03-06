@@ -1,2 +1,2 @@
-import * from './Shapes1'
-import * from './Shapes2'
+export * from './Shapes1'
+export * from './Shapes2'

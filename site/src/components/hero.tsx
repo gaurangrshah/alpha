@@ -6,17 +6,16 @@ import Content from "../elements/content"
 // @ts-ignore
 import Intro from "../sections/intro"
 import { Tagline } from "./Tagline"
+import { BrandMark } from "./Brand"
 
 const Hero = ({ offset }: { offset: number }) => (
   <div>
     <Shapes1 offset={offset} />
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset}>
+      <BrandMark offset={offset} />
       <Inner>
         <Intro />
-        <Tagline
-          tagline='We help build'
-        // scrollItems={['hello', 'my baby', 'hello', 'my darling']}
-        />
+        <Tagline tagline='We help build' />
       </Inner>
     </Content>
   </div>

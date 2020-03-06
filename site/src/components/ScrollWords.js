@@ -12,7 +12,7 @@ const defaultItems = [
 
 const ITERATION_COUNT = 120
 
-export function ScrollWords({ scrollItems = defaultItems }) {
+export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
   const ref = useRef(0)
   const [items, set] = useState([scrollItems[0]])
   const [currCount, setCurrCount] = useState(0)
@@ -31,9 +31,23 @@ export function ScrollWords({ scrollItems = defaultItems }) {
   }, 2500)
 
   const transitions = useTransition(items, item => item.id, {
-    from: { position: 'absolute', top: '0px', left: '285px', transform: 'translate3d(0, 100px,0)', opacity: 0, color: 'white' },
-    enter: { transform: 'translate3d(0, 0px,0)', opacity: 1, color: 'orange' },
-    leave: { transform: 'translate3d(0,-100px,0)', opacity: 0, color: 'darkGray' },
+    from: {
+      position: 'absolute',
+      left: offsetLeft,
+      transform: 'translate3d(0, 100px,0)',
+      opacity: 0,
+      color: 'white'
+    },
+    enter: {
+      transform: 'translate3d(0, 0px,0)',
+      opacity: 1,
+      color: 'orange'
+    },
+    leave: {
+      transform: 'translate3d(0,-100px,0)',
+      opacity: 0,
+      color: 'darkGray'
+    },
     config: config.wobbly,
   })
 
