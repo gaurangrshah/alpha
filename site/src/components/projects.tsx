@@ -1,8 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { Heading, Text } from "@theme-ui/components"
+
 import Divider from "../elements/divider"
 import Inner from "../elements/inner"
 import Content from "../elements/content"
+
 import SVG from "./svg"
 import { UpDown, UpDownWide } from "../styles/animations"
 // @ts-ignore
@@ -17,19 +20,39 @@ const Projects = ({ offset }: { offset: number }) => (
       offset={1.1}
       factor={2}
     />
-    <Content speed={0.4} offset={offset + 0.2} factor={2}>
-      <Inner>
+
+    <Content
+      speed={0.2}
+      offset={offset + 0.1}
+      factor={3}
+    >
+      <Text
+        as="h2"
+        sx={{
+          zIndex: '-1',
+          variant: 'text.large',
+          mt: '-83rem'
+        }}
+      >
+        Work
+      </Text>
+      <Content
+        speed={0.2}
+        offset={0}
+      >
+
+        <Inner />
         <div
           sx={{
+            zIndex: 1,
             display: `grid`,
             gridGap: [4, 4, 4, 5],
             gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
-            h2: { gridColumn: `-1/1`, color: `white !important` },
           }}
         >
           <ProjectsMDX />
         </div>
-      </Inner>
+      </Content>
     </Content>
     <Divider speed={0.1} offset={offset} factor={2}>
       <UpDown>

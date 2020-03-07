@@ -20,7 +20,8 @@ export const Tagline = ({
         sx={{
           display: ['block', null, null, null, 'flex'],
           fontSize: ['3rem', null, '4rem'],
-          fontWeight: 600
+          fontWeight: 600,
+          mt: '30%',
         }}>
         <Box>{tagline}</Box>
         <ScrollWords offsetLeft={offsetLeft} />

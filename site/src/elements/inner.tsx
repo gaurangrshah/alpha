@@ -7,8 +7,8 @@ type InnerProps = {
   children?: React.ReactNode
 }
 
-const Inner = ({ className, children }: InnerProps) => (
-  <div className={className} sx={{ width: [`full`, `full`, `full`, `full`, `full`, `2/3`], textAlign: `left` }}>
+const Inner = ({ className, children, ...props }: InnerProps) => (
+  <div className={className} {...props} sx={{ width: [`full`, `full`, `full`, `full`, `full`, `2/3`], textAlign: `left` }}>
     {children}
   </div>
 )

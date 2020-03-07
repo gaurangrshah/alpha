@@ -1,4 +1,6 @@
 import React from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import { css } from "theme-ui"
 import { ParallaxLayer } from "react-spring/renderprops-addons.cjs"
 
@@ -10,7 +12,7 @@ type ContentProps = {
   factor?: number
 }
 
-const Content = ({ speed, offset, children, className, factor }: ContentProps) => (
+const Content = ({ speed, offset, children, className, factor, ...props }: ContentProps) => (
   <ParallaxLayer
     className={className}
     css={css({
@@ -24,9 +26,10 @@ const Content = ({ speed, offset, children, className, factor }: ContentProps) =
     speed={speed}
     offset={offset}
     factor={factor || 1}
+    {...props}
   >
     {children}
-  </ParallaxLayer>
+  </ParallaxLayer >
 )
 
 export default Content

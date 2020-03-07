@@ -96,6 +96,15 @@ export default {
     test: '1px solid yellow',
     default: '1px solid purple',
   },
+  text: {
+    ...tailwind.text,
+    large: {
+      fontFamily: 'heading',
+      lineHeight: 'heading',
+      fontWeight: 'heading',
+      fontSize: '14rem',
+    },
+  },
   styles: {
     ...tailwind.styles,
     root: {

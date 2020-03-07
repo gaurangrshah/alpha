@@ -16,7 +16,6 @@ const ProjectCard = ({ link, title, children, bg }: ProjectCardProps) => {
       href={link}
       target="_blank"
       rel="noreferrer noopener"
-      // style={{ opacity: 1 }}
       sx={{
         width: `100%`,
         boxShadow: `lg`,

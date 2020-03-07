@@ -12,10 +12,10 @@ module.exports = {
       options: {
         siteMetadata: {
           siteTitle: `G. Shah Dev`,
-          siteTitleAlt: `Gaurang R. Shah Tech Consultant`,
+          siteTitleAlt: `G Shah Dev`,
           siteHeadline: `G.Shah Dev`,
           siteUrl: `https://www.gshah.dev`,
-          siteDescription: `Tech Savy, Digital Enthusiast helping you succeed.`,
+          siteDescription: `Success Developed.`,
           siteLanguage: `en`,
           siteImage: `/banner.jpg`,
           author: `@gshahdev`,
