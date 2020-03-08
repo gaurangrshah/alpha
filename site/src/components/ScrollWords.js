@@ -10,18 +10,20 @@ const defaultItems = [
   { id: 3, text: 'websites' },
   { id: 4, text: 'businesses' },
   { id: 5, text: 'brands' },
-  { id: 6, text: '& more' },
+  // { id: 6, text: '& more' },
 ]
 
-const ITERATION_COUNT = 120
 
-export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
+
+export default function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
+  const ITERATION_COUNT = scrollItems * 6
+
   const ref = useRef(0)
   const [items, set] = useState([scrollItems[0]])
   const [currCount, setCurrCount] = useState(0)
 
   const context = useThemeUI()
-  const { colorMode } = context
+  const { theme, colorMode } = context
 
   const modeShadow = colorMode === 'dark' ? 'neuDarkSm' : 'neuLightSm'
 
@@ -39,6 +41,8 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
     }
   }, 2500)
 
+  const color = theme.secondary
+
   const transitions = useTransition(items, item => item.id, {
     from: {
       position: 'absolute',
@@ -50,7 +54,7 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
     enter: {
       transform: 'translate3d(0, 0px,0)',
       opacity: 1,
-      color: '#3182ce'
+      color: '#5a67d8',
     },
     leave: {
       transform: 'translate3d(0, -100px,0)',
@@ -61,9 +65,7 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
   })
 
   return transitions.map(({ item, props: { position, left, ...rest }, key }) => {
-
     return (
-
       <animated.span key={key} style={rest}>
         <Box
           sx={{
@@ -76,8 +78,6 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
           {item.text}
         </Box>
       </animated.span>
-
     )
   })
-
 }

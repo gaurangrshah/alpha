@@ -18,10 +18,10 @@ const Card = ({
 }) => {
 
   const context = useThemeUI()
-  const { colorMode } = context
+  const { theme, colorMode } = context
 
-  const cardBg = colorMode === 'dark' ? "#1F2464" : "#C2C7FF"
-  const thumbBg = colorMode === 'dark' ? "#0D0F28" : "#D3D5ED"
+  // const cardBg = colorMode === 'dark' ? "bgBlue" : "#C2C7FF"
+  const thumbBg = colorMode === 'dark' ? "#141821" : "#D3D5ED"
 
   return (
     <a
@@ -31,8 +31,10 @@ const Card = ({
       rel="noreferrer noopener"
       sx={linkStyles}
     >
-      <Box sx={cardStyles(cardBg)}>
-        <Box sx={cardImgStyles(thumbBg)}>
+      <Box sx={cardStyles}>
+        <Box sx={
+          cardImgStyles(thumbBg)
+        }>
           <Image src={aaryaa} />
         </Box>
         <Heading as="h3" sx={{}}>{title}</Heading>
@@ -64,7 +66,7 @@ const linkStyles = {
   px: 2,
 }
 
-const cardStyles = (cardBg) => ({
+const cardStyles = {
   display: 'flex',
   flexDirection: 'column',
   width: `100%`,
@@ -78,9 +80,10 @@ const cardStyles = (cardBg) => ({
   fontSize: [4, 5],
   fontWeight: `medium`,
   lineHeight: 1,
-  background: cardBg || `none`,
+  bg: 'transparent',
   transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
   "&:hover": {
+    bg: 'bgBlue',
     color: `white !important`,
     transform: `translateY(-10px)`,
     boxShadow: `xl`,
@@ -89,7 +92,7 @@ const cardStyles = (cardBg) => ({
     my: 3,
     py: 3,
   }
-})
+}
 
 const cardImgStyles = (thumbBg) => ({
   position: 'relative',
