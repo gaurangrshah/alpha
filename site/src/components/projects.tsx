@@ -5,6 +5,7 @@ import { Heading, Text } from "@theme-ui/components"
 import Divider from "../elements/divider"
 import Inner from "../elements/inner"
 import Content from "../elements/content"
+import ProjectFilter from "../components/ProjectFilter"
 
 import { Shapes2 } from "../components/Shapes"
 // @ts-ignore
@@ -35,12 +36,13 @@ const Projects = ({ offset }: { offset: number }) => {
             h2: { gridColumn: `-1/1`, color: `heading`, variant: 'text.large' },
           }}
           >
+            <ProjectFilter />
             <ProjectsMDX />
           </div>
         </Inner>
       </Content>
       <Shapes2 offset={offset} />
-    </div>
+    </div >
   )
 }
 

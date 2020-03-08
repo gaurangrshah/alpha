@@ -54,7 +54,7 @@ export default function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0
     enter: {
       transform: 'translate3d(0, 0px,0)',
       opacity: 1,
-      color: '#5a67d8',
+      color: '#805ad5',
     },
     leave: {
       transform: 'translate3d(0, -100px,0)',

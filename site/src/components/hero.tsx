@@ -10,10 +10,10 @@ import TaglineMDX from "../sections/tagline"
 const Hero = ({ offset }: { offset: number }) => (
   <div>
     <Shapes1 offset={offset} />
-    <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset}>
+    <Content speed={0.4} offset={offset}>
       <BrandMark offset={offset} />
       <Inner>
-        <TaglineMDX tagline="We Built" />
+        <TaglineMDX />
       </Inner>
     </Content>
   </div>

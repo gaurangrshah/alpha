@@ -8,6 +8,9 @@ export default function Info() {
   return (
     <Box
       sx={{
+        position: 'fixed',
+        bottom: '5',
+        right: '6',
         fontSize: '3',
         '& a': {
           color: 'altText',
