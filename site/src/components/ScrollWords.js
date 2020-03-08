@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
 /** @jsx jsx */
-import { jsx, Box } from 'theme-ui'
+import { jsx, Box, useThemeUI } from 'theme-ui'
 import { useTransition, animated, config } from 'react-spring'
 import { useInterval } from '../hooks/useInterval'
-import { shortid } from '../utils'
 
 const defaultItems = [
   { id: 1, text: 'user interfaces' },
@@ -20,6 +19,12 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
   const ref = useRef(0)
   const [items, set] = useState([scrollItems[0]])
   const [currCount, setCurrCount] = useState(0)
+
+  const context = useThemeUI()
+  const { colorMode } = context
+
+  const modeShadow = colorMode === 'dark' ? 'neuDarkSm' : 'neuLightSm'
+
 
   useInterval(() => {
     if (ref.current === ITERATION_COUNT) return null
@@ -62,7 +67,7 @@ export function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0 }) {
       <animated.span key={key} style={rest}>
         <Box
           sx={{
-            textShadow: 'neuDarkSm',
+            textShadow: modeShadow,
             position: ['absolute'],
             pl: 3,
             width: ['lg', null, null, 'xl'],

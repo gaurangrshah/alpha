@@ -4,9 +4,8 @@ import { Shapes1 } from './Shapes/shapes1'
 import Inner from "../elements/inner"
 import Content from "../elements/content"
 // @ts-ignore
-import Intro from "../sections/intro"
-import { Tagline } from "./Tagline"
 import { BrandMark } from "./Brand"
+import TaglineMDX from "../sections/tagline"
 
 const Hero = ({ offset }: { offset: number }) => (
   <div>
@@ -14,8 +13,7 @@ const Hero = ({ offset }: { offset: number }) => (
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset}>
       <BrandMark offset={offset} />
       <Inner>
-        {/* <Intro /> */}
-        <Tagline tagline='We help build' />
+        <TaglineMDX tagline="We Built" />
       </Inner>
     </Content>
   </div>

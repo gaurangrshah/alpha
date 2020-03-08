@@ -3,7 +3,7 @@ import { jsx, Box } from 'theme-ui'
 import React from 'react'
 import { ScrollWords } from './ScrollWords'
 
-export const Tagline = ({
+export default ({
   tagline = 'Tagline',
   scrollItems = [],
   offsetLeft = '450px',
@@ -26,7 +26,7 @@ export const Tagline = ({
         <Box>{tagline}</Box>
         <ScrollWords offsetLeft={offsetLeft} />
       </Box>
-    </Box >
+    </Box>
   )
 }
 

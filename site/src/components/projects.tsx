@@ -8,37 +8,40 @@ import Content from "../elements/content"
 
 import { Shapes2 } from "../components/Shapes"
 // @ts-ignore
-import Projects2MDX from "../sections/projects2"
+import ProjectsMDX from "../sections/projects"
 
-const Projects = ({ offset }: { offset: number }) => (
-  <div className='holder' sx={{ position: 'relative' }}>
-    <Divider
-      bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
-      sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
-      speed={-0.2}
-      offset={1.1}
-      factor={2}
-    />
-    <Content
-      speed={0.2}
-      offset={offset + 0.1}
-      factor={2}
-    >
-      <Inner>
-        <div sx={{
-          zIndex: 1,
-          display: `grid`,
-          gridGap: [4, 4, 4, 5],
-          gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
-          h2: { gridColumn: `-1/1`, color: `white !important`, variant: 'text.large' },
-        }}
-        >
-          <Projects2MDX />
-        </div>
-      </Inner>
-    </Content>
-    <Shapes2 offset={offset} />
-  </div>
-)
+const Projects = ({ offset }: { offset: number }) => {
+
+  return (
+    <div className='holder' sx={{ position: 'relative' }}>
+      <Divider
+        bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
+        sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
+        speed={-0.2}
+        offset={1.1}
+        factor={2}
+      />
+      <Content
+        speed={0.2}
+        offset={offset + 0.1}
+        factor={2}
+      >
+        <Inner>
+          <div sx={{
+            zIndex: 1,
+            display: `grid`,
+            gridGap: [4, 4, 4, 5],
+            gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
+            h2: { gridColumn: `-1/1`, color: `heading`, variant: 'text.large' },
+          }}
+          >
+            <ProjectsMDX />
+          </div>
+        </Inner>
+      </Content>
+      <Shapes2 offset={offset} />
+    </div>
+  )
+}
 
 export default Projects

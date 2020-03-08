@@ -80,6 +80,8 @@ export default {
     -4px -4px 20px #000000`,
     neuLight: `10px 10px 20px #e9e8e9,
     -10px -10px 20px #ffffff`,
+    neuLightSm: `4px 4px 20px #C4C4C4,
+    -4px -4px 20px #DADADA`,
     neuSm: `2px 2px 8px #f1eff0,
     -2px -2px 8px #ffffff;`,
     neuGray: `7px 7px 14px #7b7c7d,

@@ -1,6 +1,6 @@
 import React from "react"
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, useThemeUI } from "theme-ui"
 import { Link } from "gatsby"
 import { Box, Image, Heading, Text } from "@theme-ui/components"
 
@@ -11,16 +11,22 @@ import aaryaa from "../assets/images/aaryaa_icon.png"
 const Card = ({
   to = "#0",
   thumb = "",
-  thumbBg = "#0D0F28",
-  cardBg = "#1F2464",
   title = 'Project Title',
   categories = ['branding', 'app', 'design'],
   children = {},
   ...props
-}) => (
+}) => {
+
+  const context = useThemeUI()
+  const { colorMode } = context
+
+  const cardBg = colorMode === 'dark' ? "#1F2464" : "#C2C7FF"
+  const thumbBg = colorMode === 'dark' ? "#0D0F28" : "#D3D5ED"
+
+  return (
     <a
       as={Link}
-      // href={to}
+      href={to}
       target="_blank"
       rel="noreferrer noopener"
       sx={linkStyles}
@@ -38,8 +44,6 @@ const Card = ({
                 key={i}
                 sx={{
                   ...categoryStyles(categoryColor(categories[i])),
-                  // bg: categoryColor(categories[i]),
-                  // filter: 'saturate(0.6)',
                 }}
               >
                 {cat}
@@ -50,6 +54,7 @@ const Card = ({
       </Box>
     </a >
   )
+}
 
 export default Card
 

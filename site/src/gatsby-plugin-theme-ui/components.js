@@ -1,21 +1,25 @@
 import React from "react"
-import ProjectCard from "../components/project-card"
+// import ProjectCard from "../components/project-card"
 import Card from "../components/Card"
+import ScrollWords from "../components/ScrollWords"
+import Tagline from "../components/Tagline"
 
 export default {
   // eslint-disable-next-line react/display-name
-  ProjectCard: ({ link, title, bg, children }) => (
-    <ProjectCard link={link} title={title} bg={bg}>
+  Card: ({ to, thumb, title, categories, children }) => (
+    <Card to={to} thumb={thumb} title={title} categories={categories}>
       {children}
-      <p>new</p>
-    </ProjectCard>
+    </Card>
   ),
   // eslint-disable-next-line react/display-name
-  Card: ({ to, thumb, thumbBg, cardBg, title, categories, children }) => (
-    <Card to={to} thumb={thumb} thumbBg={thumbBg} cardBg={cardBg} title={title} categories={categories}>
+  Tagline: ({ tagline, scrollItems, offsetLeft, children }) => (
+    <Tagline tagline={tagline} scrollItems={scrollItems} offsetLeft={offsetLeft}>
       {children}
-      <p>new</p>
-    </Card>
+    </Tagline>
+  ),
+  // eslint-disable-next-line react/display-name
+  ScrollWords: ({ scrollItems, offsetLeft }) => (
+    <ScrollWords scrollItems={scrollItems} offsetLeft={offsetLeft} />
   ),
 
 }
