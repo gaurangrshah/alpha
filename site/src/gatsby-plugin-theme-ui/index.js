@@ -10,6 +10,10 @@ export default {
     primaryHover: tailwind.colors.blue[6],
     secondary: tailwind.colors.indigo[6],
     secondaryHover: tailwind.colors.indigo[8],
+    darkGray: tailwind.colors.gray[9],
+    lightGray: tailwind.colors.gray[4],
+    alpha: 'rgba(26,32,44,0.1)', //'#1a202c' / gray.9
+    alphaBlue: 'rgba(31,36,100,0.1)', // #1F2464
     text: tailwind.colors.gray[3],
     heading: tailwind.colors.white,
     background: `#141821`,
@@ -18,7 +22,7 @@ export default {
     textMuted: tailwind.colors.gray[5],
     icon_brightest: tailwind.colors.white,
     icon_darker: tailwind.colors.gray[7],
-    icon_darkest: tailwind.colors.gray[8],
+    icon_darkest: tailwind.colors.gray[9],
     icon_red: tailwind.colors.red[6],
     icon_blue: tailwind.colors.blue[6],
     icon_orange: tailwind.colors.orange[5],
@@ -29,6 +33,9 @@ export default {
     modes: {
       light: {
         transparent: 'rgba(203,213,224,0.1)',
+        alpha: 'rgba(31,36,100,0.1)', // #1F2464 / gray.4
+        alphaBlue: 'rgba(90,103,216,0.1)', //#5a67d8
+        darkGray: tailwind.colors.gray[8],
         text: tailwind.colors.gray[8],
         altText: tailwind.colors.gray[4],
         heading: tailwind.colors.black,

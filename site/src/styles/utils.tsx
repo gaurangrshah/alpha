@@ -16,6 +16,8 @@ export const categoryColor = (category = "") => {
     'website',
     'app',
     'design',
+    'development',
+    'marketing',
   ]
 
   return bgColors[categories.indexOf(category)].color

@@ -2,18 +2,23 @@ import React, { useState } from 'react'
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 
+const filterStyles = (toggle) => ({
+  display: 'flex',
+  flexDirection: toggle ? ['column', null, 'row'] : 'row',
+  alignItems: 'center',
+  m: 0,
+  p: 0,
+})
+
+
 export default function ProjectFilter() {
   const [toggle, setToggle] = useState(false)
+
+
   return (
     <>
       <span
-        sx={{
-          display: 'flex',
-          position: 'fixed',
-          top: '800px',
-          right: '22em',
-          p: 0,
-        }}
+        sx={filterStyles(toggle)}
       >
         <a
           onClick={() => setToggle(!toggle)}
@@ -29,7 +34,6 @@ export default function ProjectFilter() {
         <ul sx={{
           display: toggle ? 'inline-flex' : 'none',
           listStyle: 'none',
-          mt: 1,
           transform: !toggle && 'translateX(100%)',
           transition: `all 5s 0.1s ease-in`,
           '& li': {

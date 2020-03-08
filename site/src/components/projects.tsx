@@ -27,6 +27,21 @@ const Projects = ({ offset }: { offset: number }) => {
         offset={offset + 0.1}
         factor={2}
       >
+        <Inner
+          sx={{
+            width: '100%',
+            display: ['flex'],
+            flexDirection: ['column', 'row'],
+            justifyContent: 'space-between',
+            alignItems: 'baseline',
+            '& h2': {
+              flex: 1,
+            }
+          }}
+        >
+          <h2>PROJECTS</h2>
+          <ProjectFilter />
+        </Inner>
         <Inner>
           <div sx={{
             zIndex: 1,
@@ -36,7 +51,6 @@ const Projects = ({ offset }: { offset: number }) => {
             h2: { gridColumn: `-1/1`, color: `heading`, variant: 'text.large' },
           }}
           >
-            <ProjectFilter />
             <ProjectsMDX />
           </div>
         </Inner>
