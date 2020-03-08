@@ -102,7 +102,6 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      fontSize: '14rem',
     },
   },
   styles: {

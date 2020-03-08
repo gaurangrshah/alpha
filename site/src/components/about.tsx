@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { Box } from "@theme-ui/components"
 import Divider from "../elements/Divider"
 import Inner from "../elements/inner"
 import Content from "../elements/content"
@@ -7,6 +8,7 @@ import SVG from "./svg"
 import { UpDown, UpDownWide } from "../styles/animations"
 // @ts-ignore
 import AboutMDX from "../sections/about"
+import Card from "../components/Card"
 
 const About = ({ offset }: { offset: number }) => (
   <div>
