@@ -48,7 +48,7 @@ const Projects = ({ offset }: { offset: number }) => {
             display: `grid`,
             gridGap: [4, 4, 4, 5],
             gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
-            h2: { gridColumn: `-1/1`, color: `heading`, variant: 'text.large' },
+            h2: { gridColumn: `-1/1`, color: `heading`, variant: 'texts.bigger' },
           }}
           >
             <ProjectsMDX />

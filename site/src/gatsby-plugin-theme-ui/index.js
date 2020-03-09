@@ -105,6 +105,7 @@ export default {
     textShadowLight: '-2px 0px 4px rgba(178, 178, 178, 0.25)',
     textShadowDark: '1px 1px 1px rgba(0, 0, 0, 0.25)',
     outlineXl: '0 0 0 6px rgba(66, 153, 225, 0.5)',
+    shadowTop: '0px -7px 5px -2px rgba(25, 171, 253, 0.09)',
   },
   borders: {
     ...tailwind.borders,
@@ -125,11 +126,13 @@ export default {
       ...tailwind.styles.root,
       color: `text`,
       backgroundColor: `background`,
+      display: 'flex',
+      flexDirection: 'column',
       a: {
         color: 'inherit',
         transition: `all 0.3s ease-in-out`,
         "&:hover": {
-          color: tailwind.colors.blue[6],
+          color: 'gray.2',
           textDecoration: `none`,
         },
       },

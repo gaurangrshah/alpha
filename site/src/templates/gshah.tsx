@@ -6,6 +6,8 @@ import Hero from "../components/hero"
 import Projects from "../components/projects"
 import About from "../components/about"
 import Contact from "../components/contact"
+import Info from "../components/Info"
+
 
 const Cara = () => (
   <Layout>
@@ -15,6 +17,7 @@ const Cara = () => (
       <Projects offset={1} />
       <Contact offset={4} />
     </Parallax>
+    <Info />
   </Layout>
 )
 

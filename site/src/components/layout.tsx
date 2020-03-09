@@ -4,6 +4,7 @@ import { Global } from "@emotion/core"
 import { css, Styled, jsx } from "theme-ui"
 import SEO from "./seo"
 import "../styles/main.scss"
+
 type LayoutProps = { children?: React.ReactNode; className?: string }
 
 const Layout = ({ children, className }: LayoutProps) => (
@@ -29,6 +30,7 @@ const Layout = ({ children, className }: LayoutProps) => (
           textRendering: `optimizeLegibility`,
           WebkitFontSmoothing: `antialiased`,
           MozOsxFontSmoothing: `grayscale`,
+          overflow: 'hidden',
         },
         "::selection": {
           backgroundColor: `primary`,

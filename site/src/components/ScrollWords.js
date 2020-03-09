@@ -41,7 +41,6 @@ export default function ScrollWords({ scrollItems = defaultItems, offsetLeft = 0
     }
   }, 2500)
 
-  const color = theme.secondary
 
   const transitions = useTransition(items, item => item.id, {
     from: {

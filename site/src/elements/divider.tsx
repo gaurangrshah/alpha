@@ -21,10 +21,7 @@ const Divider = ({ speed, offset, factor, bg, fill, clipPath, children, classNam
       height: `full`,
       background: bg,
       backgroundColor: bg,
-      "#contact-wave": {
-        color: fill,
-        fill: `currentColor`,
-      },
+
       clipPath,
     })}
     speed={speed}
