@@ -1,4 +1,6 @@
 import React from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import { Parallax } from "react-spring/renderprops-addons.cjs"
 import Layout from "../components/layout"
 
@@ -17,7 +19,6 @@ const Cara = () => (
       <Projects offset={1} />
       <Contact offset={4} />
     </Parallax>
-    <Info />
   </Layout>
 )
 

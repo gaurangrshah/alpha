@@ -24,6 +24,13 @@ module.exports = {
         // source: 'parts'
       }
     },
+    {
+      resolve: `gatsby-plugin-portal`,
+      options: {
+        key: 'portal',
+        id: 'portal',
+      },
+    },
     `gatsby-theme-boostrap-sass`,
   ],
   "pathPrefix": "/alpha"

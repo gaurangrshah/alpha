@@ -4,7 +4,7 @@ import { Global } from "@emotion/core"
 import { css, Styled, jsx } from "theme-ui"
 import SEO from "./seo"
 import "../styles/main.scss"
-
+import Info from '../components/Info'
 type LayoutProps = { children?: React.ReactNode; className?: string }
 
 const Layout = ({ children, className }: LayoutProps) => (
@@ -12,12 +12,12 @@ const Layout = ({ children, className }: LayoutProps) => (
     <Global
       styles={css({
         "*": {
-          boxSizing: `inherit`,
+          boxSizing: `border-box`,
           "&:before": {
-            boxSizing: `inherit`,
+            boxSizing: `border-box`,
           },
           "&:after": {
-            boxSizing: `inherit`,
+            boxSizing: `border-box`,
           },
         },
         html: {
@@ -31,6 +31,12 @@ const Layout = ({ children, className }: LayoutProps) => (
           WebkitFontSmoothing: `antialiased`,
           MozOsxFontSmoothing: `grayscale`,
           overflow: 'hidden',
+          '& #portal': {
+            mx: 'auto',
+            boxShadow: 'shadowTop',
+            maxWidth: '100%',
+
+          }
         },
         "::selection": {
           backgroundColor: `primary`,
@@ -39,7 +45,10 @@ const Layout = ({ children, className }: LayoutProps) => (
       })}
     />
     <SEO />
-    <main className={className}>{children}</main>
+    <main className={className}>
+      {children}
+    </main>
+    <Info />
   </Styled.root>
 )
 

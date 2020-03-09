@@ -112,6 +112,9 @@ export default {
     test: '1px solid yellow',
     default: '1px solid purple',
   },
+  fonts: {
+    ...tailwind.fonts,
+  },
   text: {
     ...tailwind.text,
     large: {

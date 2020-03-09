@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, Container } from "theme-ui"
 import { Heading, Text } from "@theme-ui/components"
 
 import Divider from "../elements/divider"
@@ -29,7 +29,8 @@ const Projects = ({ offset }: { offset: number }) => {
       >
         <Inner
           sx={{
-            width: '100%',
+            maxWidth: '90%',
+            mx: 'auto',
             display: ['flex'],
             flexDirection: ['column', 'row'],
             justifyContent: 'space-between',
@@ -44,6 +45,8 @@ const Projects = ({ offset }: { offset: number }) => {
         </Inner>
         <Inner>
           <div sx={{
+            maxWidth: '90%',
+            mx: 'auto',
             zIndex: 1,
             display: `grid`,
             gridGap: [4, 4, 4, 5],
