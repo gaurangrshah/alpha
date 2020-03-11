@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { jsx, Box } from 'theme-ui'
 import React from 'react'
-import { Link } from 'gatsby'
-import { ScrollWords } from './ScrollWords'
 
 export default function Tagline({
   tagline = 'Tagline',

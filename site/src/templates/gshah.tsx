@@ -5,10 +5,10 @@ import { Parallax } from "react-spring/renderprops-addons.cjs"
 import Layout from "../components/layout"
 
 import Hero from "../components/hero"
-import Projects from "../components/projects"
+import Projects from "../components/projects" // 🚧 Fix Import
 import About from "../components/about"
 import Contact from "../components/contact"
-import Info from "../components/Info"
+// import Info from "../components/Drawer/Info"
 
 
 const Cara = () => (

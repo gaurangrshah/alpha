@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 /** @jsx jsx */
 import { jsx, Box, useThemeUI } from 'theme-ui'
 import { useTransition, animated, config } from 'react-spring'
-import { useInterval } from '../hooks/useInterval'
+import { useInterval } from '../../hooks/useInterval'
 
 const defaultItems = [
   { id: 1, text: 'user interfaces' },

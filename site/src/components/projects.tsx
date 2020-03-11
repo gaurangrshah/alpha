@@ -1,18 +1,54 @@
+import * as React from "react"
+import { useState } from "react"
 /** @jsx jsx */
-import { jsx, Container } from "theme-ui"
-import { Heading, Text } from "@theme-ui/components"
-
+import { jsx } from "theme-ui"
 import Divider from "../elements/divider"
 import Inner from "../elements/inner"
 import Content from "../elements/content"
-import ProjectFilter from "../components/ProjectFilter"
+import ProjectFilter from "./Project/ProjectFilter"
+import { ContentHolder } from "./Accordion/ContentHolder"
+// import { ContentPlaceholder } from "./Accordion/ContentPlaceholder"
+import Card from "./Project/Card"
 
-import { Shapes2 } from "../components/Shapes"
-// @ts-ignore
-import ProjectsMDX from "../sections/projects"
+import { Shapes2 } from "./Shapes"
+
+const accordionStyles = {
+  display: "grid",
+  gridTemplateColumns: "1fr",
+  gridTemplateRows: "1fr 1fr, repeat(2, 1fr)",
+  gridTemplateAreas: `"" "contentHolder"`,
+  gridArea: "accordion",
+}
+
+const projs = [
+  { id: 1, client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 2, client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 3, client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 4, client: 'Aarya', categories: ['app', 'branding'] },
+]
+
+const RenderProject = ({
+  thumb = '../assets/images/aaryaa_icon.png',
+  client = "Client",
+  categories = [],
+  children = {}
+}) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleIsOpen = () => setIsOpen(!isOpen)
+  return (
+    <React.Fragment>
+      <Card
+        thumb={thumb}
+        title={client}
+        categories={categories}
+        open={toggleIsOpen}
+      />
+      <ContentHolder isOpen={isOpen} gridArea="contentHolder" children={children} />
+    </React.Fragment>
+  )
+}
 
 const Projects = ({ offset }: { offset: number }) => {
-
   return (
     <div className='holder' sx={{ position: 'relative' }}>
       <Divider
@@ -27,36 +63,50 @@ const Projects = ({ offset }: { offset: number }) => {
         offset={offset + 0.1}
         factor={2}
       >
-        <Inner
+        <div
           sx={{
-            maxWidth: '90%',
-            mx: 'auto',
-            display: ['flex'],
-            flexDirection: ['column', 'row'],
-            justifyContent: 'space-between',
-            alignItems: 'baseline',
-            '& h2': {
-              flex: 1,
-            }
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: 'full',
+            mx: 'auto'
           }}
         >
-          <h2>PROJECTS</h2>
-          <ProjectFilter />
-        </Inner>
-        <Inner>
-          <div sx={{
-            maxWidth: '90%',
-            mx: 'auto',
-            zIndex: 1,
-            display: `grid`,
-            gridGap: [4, 4, 4, 5],
-            gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
-            h2: { gridColumn: `-1/1`, color: `heading`, variant: 'texts.bigger' },
-          }}
+          <Inner
+            sx={{
+              display: ['flex'],
+              flexDirection: ['column', 'row'],
+              alignItems: 'baseline',
+              border: 'test',
+              '& h2': {
+                flex: 1,
+              }
+            }}
           >
-            <ProjectsMDX />
-          </div>
-        </Inner>
+            <h2>Projects</h2>
+            <ProjectFilter />
+          </Inner>
+          <Inner sx={{ display: 'none' }}>
+            Test
+          </Inner>
+          <Inner>
+            <div sx={{
+              position: 'relative',
+              zIndex: 1,
+              display: `grid`,
+              gridGap: [4, 4, 4, 5],
+              gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
+              gridTemplateAreas: `". ." "accordion accordion" ". ."`,
+            }}
+            >
+              {projs.map((proj) => (
+                <RenderProject key={proj.id} {...proj}>
+                  hmmmm.
+                </RenderProject>
+              ))}
+            </div>
+          </Inner>
+        </div>
       </Content>
       <Shapes2 offset={offset} />
     </div >

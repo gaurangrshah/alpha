@@ -1,11 +1,10 @@
 import React from "react"
 /** @jsx jsx */
 import { jsx, useThemeUI } from "theme-ui"
-import { Link } from "gatsby"
 import { Box, Image, Heading, Text } from "@theme-ui/components"
 
-import { categoryColor } from "../styles/utils"
-import aaryaa from "../assets/images/aaryaa_icon.png"
+import { categoryColor } from "../../styles/utils"
+import aaryaa from "../../assets/images/aaryaa_icon.png"
 
 
 const Card = ({
@@ -13,28 +12,22 @@ const Card = ({
   thumb = "",
   title = 'Project Title',
   categories = ['branding', 'app', 'design'],
+  open,
   children = {},
   ...props
 }) => {
 
   const context = useThemeUI()
   const { theme, colorMode } = context
-
-  // const cardBg = colorMode === 'dark' ? "bgBlue" : "#C2C7FF"
   const thumbBg = colorMode === 'dark' ? "#141821" : "#D3D5ED"
 
   return (
     <a
-      as={Link}
-      href={to}
-      target="_blank"
-      rel="noreferrer noopener"
       sx={linkStyles}
+      onClick={open}
     >
       <Box sx={cardStyles}>
-        <Box sx={
-          cardImgStyles(thumbBg)
-        }>
+        <Box sx={cardImgStyles(thumbBg)}>
           <Image src={aaryaa} />
         </Box>
         <Heading as="h3" sx={{}}>{title}</Heading>
@@ -44,10 +37,7 @@ const Card = ({
               <Text
                 as="p"
                 key={i}
-                sx={{
-                  ...categoryStyles(categoryColor(categories[i])),
-                }}
-              >
+                sx={{ ...categoryStyles(categoryColor(categories[i])) }}>
                 {cat}
               </Text>
             ))}
@@ -67,6 +57,7 @@ const linkStyles = {
 }
 
 const cardStyles = {
+  mx: 'auto',
   display: 'flex',
   flexDirection: 'column',
   width: `100%`,
@@ -83,7 +74,8 @@ const cardStyles = {
   bg: 'alphaBlue',
   transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
   "&:hover": {
-    bg: 'bgBlue',
+    cursor: 'pointer',
+    bg: 'alpha',
     color: `white !important`,
     transform: `translateY(-10px)`,
     boxShadow: `xl`,

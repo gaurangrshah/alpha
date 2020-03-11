@@ -5,8 +5,8 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 
 import Drawer from './Drawer'
-import Portal from "../elements/Portal"
-import profile from "../assets/images/jammers-greg.png"
+import Portal from "../../elements/Portal"
+import profile from "../../assets/images/jammers-greg.png"
 
 export default function Info() {
 
@@ -37,7 +37,7 @@ export default function Info() {
             bottom: 7,
             right: '0',
             padding: 1,
-            bg: 'icon_red',
+            bg: 'redHighlight',
             borderTopLeftRadius: 'lg',
             transform: 'scale(0.9) translateX(-16px)',
             transfrom: '',
@@ -61,10 +61,11 @@ export default function Info() {
           >
             <Image src={profile} sx={{
               width: '20%',
+              borderRadius: '50%',
               clipPath: 'circle(50% at 50% 50%)',
               order: 2,
             }} />
-            <Text sx={{ fontSize: 5, fontWeight: '600', flex: 1, px: 3, py: 4 }}>Gaurang Shah</Text>
+            <Text sx={{ color: 'altText', fontSize: 5, fontWeight: '600', flex: 1, px: 3, py: 4 }}>Gaurang Shah</Text>
           </Box>
         </Drawer>
       </Portal>

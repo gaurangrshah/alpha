@@ -12,8 +12,11 @@ export default {
     secondaryHover: tailwind.colors.indigo[8],
     darkGray: tailwind.colors.gray[9],
     lightGray: tailwind.colors.gray[4],
+    altText: tailwind.colors.gray[4],
     alpha: 'rgba(26,32,44,0.1)', //'#1a202c' / gray.9
-    alphaBlue: 'rgba(31,36,100,0.1)', // #1F2464
+    alphaBlue: 'rgba(31,36,100,0.2)', // #1F2464
+    redHighlight: 'rgb(255, 0, 136)', // #ff0088
+    blueHighlight: 'rgb(0, 85, 255)', // #0055ff
     text: tailwind.colors.gray[3],
     heading: tailwind.colors.white,
     background: `#141821`,

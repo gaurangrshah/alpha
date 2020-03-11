@@ -7,7 +7,7 @@ import { useTransition, animated, config } from 'react-spring'
 export default function Drawer({ isOpen, children }) {
   const transitions = useTransition(isOpen, null, {
     from: { marginBottom: '-100%' },
-    enter: { marginBottom: '0' },
+    enter: { marginBottom: '-1' },
     leave: { marginBottom: '-100%' },
     config: config.wobbly
   })
