@@ -5,16 +5,17 @@ import React, { useState } from 'react'
 import { Link } from 'gatsby'
 
 import Drawer from './Drawer'
+import { AboutInfo } from './Info/About'
 import Portal from "../../elements/Portal"
-import profile from "../../assets/images/jammers-greg.png"
 
-export default function Info() {
+export default function Info({ children }) {
 
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick = (e) => {
     e.preventDefault()
     e.persist()
+    console.log(isOpen)
     setIsOpen(!isOpen)
   }
 
@@ -59,23 +60,8 @@ export default function Info() {
           <Box
             sx={{ display: ['block', null, 'flex'], justifyContent: 'space-between', fontFamily: 'sans' }}
           >
-            <Image src={profile} sx={{
-              width: '10em',
-              height: '10%',
-              borderRadius: '50%',
-              clipPath: 'circle(50% at 50% 50%)',
-              order: 2,
-            }} />
-            <Text sx={{
-              color: 'altText',
-              fontSize: 5,
-              fontWeight: '600',
-              flex: 1,
-              px: 3,
-              py: 4
-            }}>
-              Gaurang Shah
-            </Text>
+
+            {children ? children : <AboutInfo />}
           </Box>
         </Drawer>
       </Portal>
