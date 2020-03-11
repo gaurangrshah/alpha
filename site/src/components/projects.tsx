@@ -11,13 +11,6 @@ import { ContentHolder } from "./Accordion/ContentHolder"
 import Card from "./Project/Card"
 import { Shapes2 } from "./Shapes"
 
-const accordionStyles = {
-  display: "grid",
-  gridTemplateColumns: "1fr",
-  gridTemplateRows: "1fr 1fr, repeat(2, 1fr)",
-  gridTemplateAreas: `"" "contentHolder"`,
-  gridArea: "accordion",
-}
 
 const projs = [
   { id: 1, client: 'Aarya', categories: ['app', 'branding'] },
@@ -27,22 +20,23 @@ const projs = [
 ]
 
 const RenderProject = ({
+  id = 0,
   thumb = '../assets/images/aaryaa_icon.png',
   client = "Client",
   categories = [],
   children = {}
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleIsOpen = () => setIsOpen(!isOpen)
+  const [expanded, setExpanded] = useState(0)
+  const toggleExpanded = () => setExpanded(expanded ? 0 : id)
   return (
     <React.Fragment>
       <Card
         thumb={thumb}
         title={client}
         categories={categories}
-        open={toggleIsOpen}
+        open={toggleExpanded}
       />
-      <ContentHolder isOpen={isOpen} gridArea="contentHolder" children={children} />
+      <ContentHolder i={id} expanded={expanded} gridArea="contentHolder" children={children} />
     </React.Fragment>
   )
 }

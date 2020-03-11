@@ -43,7 +43,7 @@ export const Accordion = ({ i, children, ...props }) => {
             }}
             transition={{ duration: 0.6, ease: [0.04, 0.42, 0.13, 0.58] }}
           >
-            <ContentPlaceholder isOpen={isOpen} gridArea="contentHolder">
+            <ContentPlaceholder gridArea="contentHolder">
               {children}
             </ContentPlaceholder>
           </motion.section>

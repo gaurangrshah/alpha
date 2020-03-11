@@ -34,11 +34,11 @@ const Paragraph = ({ words }) => (
   </div>
 );
 
-export const ContentPlaceholder = ({ children }) => (
+export const ContentPlaceholder = ({ children, ...props }) => (
   <motion.div
     variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
     transition={{ duration: 0.8 }}
-    style={{ padding: '20px', }}
+    style={{ padding: '20px', ...props }}
   >
     {
       !children ?
