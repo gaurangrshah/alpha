@@ -1,12 +1,17 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const ContentHolder = ({ i, expanded, toggleExpanded = () => console.log('toggleExpanded'), children, ...props }) => {
-  const isOpen = i === expanded
-  console.log(isOpen, i, expanded)
+export const ContentHolder = ({
+  i,
+  expanded, toggleExpanded = () => console.log('toggleExpanded'),
+  proj,
+  children,
+  ...props }) => {
+  // const isOpen = i === expanded
+  // console.log(isOpen, i, expanded)
   return (
     <AnimatePresence initial={false}>
-      {isOpen && (
+      {i === expanded && (
         <motion.div
           key="content"
           initial="collapsed"
@@ -23,7 +28,7 @@ export const ContentHolder = ({ i, expanded, toggleExpanded = () => console.log(
             color: 'white',
             ...props
           }}>
-            {children}
+            {JSON.stringify(proj, null, 2) || children}
           </div>
         </motion.div>
       )}

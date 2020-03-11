@@ -20,12 +20,14 @@ const projs = [
 ]
 
 const RenderProject = ({
-  id = 0,
-  thumb = '../assets/images/aaryaa_icon.png',
-  client = "Client",
-  categories = [],
+  // id = 0,
+  // thumb = '../assets/images/aaryaa_icon.png',
+  // client = "Client",
+  // categories = [],
+  proj = {},
   children = {}
 }) => {
+  const { id, thumb, client, categories } = proj
   const [expanded, setExpanded] = useState(0)
   const toggleExpanded = () => setExpanded(expanded ? 0 : id)
   return (
@@ -36,7 +38,12 @@ const RenderProject = ({
         categories={categories}
         open={toggleExpanded}
       />
-      <ContentHolder i={id} expanded={expanded} gridArea="contentHolder" children={children} />
+      <ContentHolder
+        i={id}
+        expanded={expanded}
+        gridArea="contentHolder"
+        children={children}
+        proj={proj} />
     </React.Fragment>
   )
 }
@@ -93,8 +100,12 @@ const Projects = ({ offset }: { offset: number }) => {
             }}
             >
               {projs.map((proj) => (
-                <RenderProject key={proj.id} {...proj}>
-                  hmmmm.
+                <RenderProject key={proj.id} proj={proj} >
+                  <div
+                    sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                  >
+
+                  </div>
                 </RenderProject>
               ))}
             </div>
@@ -102,7 +113,7 @@ const Projects = ({ offset }: { offset: number }) => {
         </div>
       </Content>
       <Shapes2 offset={offset} />
-    </div >
+    </div>
   )
 }
 
