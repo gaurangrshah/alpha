@@ -1,18 +1,19 @@
-import React from "react"
+import React, { useContext } from "react"
 /** @jsx jsx */
 import { jsx, useThemeUI } from "theme-ui"
 import { Box, Image, Heading, Text } from "@theme-ui/components"
-
 import { categoryColor } from "../../styles/utils"
 import aaryaa from "../../assets/images/aaryaa_icon.png"
 
 
 const Card = ({
   to = "#0",
+  id = 0,
   thumb = "",
   title = 'Project Title',
   categories = ['branding', 'app', 'design'],
-  open,
+  open = () => console.log('defaultOpen', id),
+  toggleExpanded,
   children = {},
   ...props
 }) => {
@@ -24,7 +25,7 @@ const Card = ({
   return (
     <a
       sx={linkStyles}
-      onClick={open}
+      onClick={() => toggleExpanded(id)}
     >
       <Box sx={cardStyles}>
         <Box sx={cardImgStyles(thumbBg)}>

@@ -60,7 +60,6 @@ export default function Info({ children }) {
           <Box
             sx={{ display: ['block', null, 'flex'], justifyContent: 'space-between', fontFamily: 'sans' }}
           >
-
             {children ? children : <AboutInfo />}
           </Box>
         </Drawer>

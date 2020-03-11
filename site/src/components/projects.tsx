@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useState } from "react"
+import { useState, useContext } from "react"
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import Divider from "../elements/divider"
@@ -7,40 +7,32 @@ import Inner from "../elements/inner"
 import Content from "../elements/content"
 import ProjectFilter from "./Project/ProjectFilter"
 import { ContentHolder } from "./Accordion/ContentHolder"
-
+import { ExpandedContext, ProjectContext } from "../context/project-context"
 import Card from "./Project/Card"
 import { Shapes2 } from "./Shapes"
-
-
-const projs = [
-  { id: 1, client: 'Aarya', categories: ['app', 'branding'] },
-  { id: 2, client: 'Aarya', categories: ['app', 'branding'] },
-  { id: 3, client: 'Aarya', categories: ['app', 'branding'] },
-  { id: 4, client: 'Aarya', categories: ['app', 'branding'] },
-]
+import { useToggleContext } from "../hooks/useGlobalContext"
 
 const RenderProject = ({
-  // id = 0,
-  // thumb = '../assets/images/aaryaa_icon.png',
-  // client = "Client",
-  // categories = [],
   proj = {},
   children = {}
 }) => {
+
   const { id, thumb, client, categories } = proj
-  const [expanded, setExpanded] = useState(0)
-  const toggleExpanded = () => setExpanded(expanded ? 0 : id)
+  const [expanded, toggleExpanded] = useToggleContext(ExpandedContext)
+
   return (
     <React.Fragment>
       <Card
+        id={id}
         thumb={thumb}
         title={client}
         categories={categories}
-        open={toggleExpanded}
+        toggleExpanded={toggleExpanded}
       />
       <ContentHolder
         i={id}
         expanded={expanded}
+        // toggleExpanded={toggleExpanded}
         gridArea="contentHolder"
         children={children}
         proj={proj} />
@@ -49,6 +41,12 @@ const RenderProject = ({
 }
 
 const Projects = ({ offset }: { offset: number }) => {
+
+  const [projects, setProjects] = useContext(ProjectContext)
+  const [expanded, toggleExpanded] = useToggleContext(ExpandedContext)
+
+  const isOpen = expanded === 0
+
   return (
     <div className='holder' sx={{ position: 'relative' }}>
       <Divider
@@ -77,7 +75,6 @@ const Projects = ({ offset }: { offset: number }) => {
               display: ['flex'],
               flexDirection: ['column', 'row'],
               alignItems: 'baseline',
-              border: 'test',
               '& h2': {
                 flex: 1,
               }
@@ -93,14 +90,14 @@ const Projects = ({ offset }: { offset: number }) => {
             <div sx={{
               position: 'relative',
               zIndex: 1,
-              display: `grid`,
+              display: [`block`, null, `grid`],
               gridGap: [4, 4, 4, 5],
               gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
-              gridTemplateAreas: `". ." "accordion accordion" ". ."`,
+              gridTemplateAreas: `". ." "holder holder" ". ."`,
             }}
             >
-              {projs.map((proj) => (
-                <RenderProject key={proj.id} proj={proj} >
+              {projects.map((project) => (
+                <RenderProject key={project.id} proj={project}>
                   <div
                     sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                   >
