@@ -7,9 +7,8 @@ import Inner from "../elements/inner"
 import Content from "../elements/content"
 import ProjectFilter from "./Project/ProjectFilter"
 import { ContentHolder } from "./Accordion/ContentHolder"
-// import { ContentPlaceholder } from "./Accordion/ContentPlaceholder"
-import Card from "./Project/Card"
 
+import Card from "./Project/Card"
 import { Shapes2 } from "./Shapes"
 
 const accordionStyles = {

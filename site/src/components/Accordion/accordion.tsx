@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ContentHolder } from "./ContentHolder";
+
+import { ContentPlaceholder } from "./ContentPlaceholder";
 
 
-export const Accordion = ({ i, expanded, setExpanded, children, ...props }) => {
+export const Accordion = ({ i, children, ...props }) => {
   const [expanded, setExpanded] = useState<false | number>(0);
   const isOpen = i === expanded;
 
