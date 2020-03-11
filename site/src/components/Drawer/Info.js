@@ -60,12 +60,22 @@ export default function Info() {
             sx={{ display: ['block', null, 'flex'], justifyContent: 'space-between', fontFamily: 'sans' }}
           >
             <Image src={profile} sx={{
-              width: '20%',
+              width: '10em',
+              height: '10%',
               borderRadius: '50%',
               clipPath: 'circle(50% at 50% 50%)',
               order: 2,
             }} />
-            <Text sx={{ color: 'altText', fontSize: 5, fontWeight: '600', flex: 1, px: 3, py: 4 }}>Gaurang Shah</Text>
+            <Text sx={{
+              color: 'altText',
+              fontSize: 5,
+              fontWeight: '600',
+              flex: 1,
+              px: 3,
+              py: 4
+            }}>
+              Gaurang Shah
+            </Text>
           </Box>
         </Drawer>
       </Portal>
