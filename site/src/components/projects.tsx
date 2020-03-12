@@ -19,7 +19,10 @@ const RenderProject = ({
 
   const { id, thumb, client, categories } = proj
   const [expanded, toggleExpanded] = useToggleContext(ExpandedContext)
-
+  // const toggleExpanded = (id) => {
+  //   console.log('expanded', expanded, 'id', id)
+  //   return setExpanded(expanded ? 0 : id)
+  // }
   return (
     <React.Fragment>
       <Card
@@ -43,7 +46,8 @@ const RenderProject = ({
 const Projects = ({ offset }: { offset: number }) => {
 
   const [projects, setProjects] = useContext(ProjectContext)
-  const [expanded, toggleExpanded] = useToggleContext(ExpandedContext)
+  const [expanded] = useToggleContext(ExpandedContext)
+
 
   const isOpen = expanded === 0
 
@@ -91,7 +95,7 @@ const Projects = ({ offset }: { offset: number }) => {
               position: 'relative',
               zIndex: 1,
               display: [`block`, null, `grid`],
-              gridGap: [4, 4, 4, 5],
+              gridGap: !isOpen ? [4, 4, 4, 5] : [6, 6, 6, 6,],
               gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
               gridTemplateAreas: `". ." "holder holder" ". ."`,
             }}
@@ -110,7 +114,7 @@ const Projects = ({ offset }: { offset: number }) => {
         </div>
       </Content>
       <Shapes2 offset={offset} />
-    </div>
+    </div >
   )
 }
 

@@ -4,11 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export const ContentHolder = ({
   i,
   expanded,
-  // toggleExpanded = () => console.log('toggleExpanded'),
   proj,
   children,
   ...props }) => {
-  // const isOpen = i === expanded
   return (
     <AnimatePresence initial={false}>
       {i === expanded && (
@@ -17,21 +15,30 @@ export const ContentHolder = ({
           initial="collapsed"
           animate="open"
           exit="collapsed"
-          variants={{ collapsed: { scale: 0.6 }, open: { scale: 1 } }}
-          transition={{ ease: 'easeOut', duration: 0.4 }}
-          style={{ padding: '20px', transformOrigin: 'center center', gridArea: 'holder' }}
-        >
-          <div style={{
+          variants={{ collapsed: { scale: 0 }, open: { scale: 1 } }}
+          transition={{ duration: 0.4 }}
+          style={{
+            padding: '20px',
+            transformOrigin: 'center center',
+            gridArea: 'holder',
             background: 'gray',
             minHeight: '100px',
             border: '1px solid red',
-            color: 'white',
-            ...props
           }}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.2 } }}
+            style={{
+              color: 'white',
+              ...props
+            }}>
             {JSON.stringify(proj, null, 2) || children}
-          </div>
+          </motion.div>
         </motion.div>
-      )}
-    </AnimatePresence>
+      )
+      }
+    </AnimatePresence >
   )
 };
