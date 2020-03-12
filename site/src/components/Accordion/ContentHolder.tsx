@@ -34,12 +34,13 @@ export const ContentHolder = ({
             initial="hidden"
             animate="visible"
             exit="hidden"
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.2 } }}
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.4 } }}
             style={{
               color: 'white',
               background: 'darkblue',
               minHeight: '100px',
               padding: '10px',
+              borderTop: '10px solid lightblue',
               ...props
             }}>
             {JSON.stringify(proj, null, 2) || children}
