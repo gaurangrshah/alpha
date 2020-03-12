@@ -15,6 +15,7 @@ export default {
     altText: tailwind.colors.gray[4],
     alpha: 'rgba(26,32,44,0.1)', //'#1a202c' / gray.9
     alphaBlue: 'rgba(31,36,100,0.2)', // #1F2464
+    alphaYellow: 'rgba(236,201,75,0.2)', // #ECC94B / yellow.5
     redHighlight: 'rgb(255, 0, 136)', // #ff0088
     blueHighlight: 'rgb(0, 85, 255)', // #0055ff
     text: tailwind.colors.gray[3],
@@ -38,6 +39,7 @@ export default {
         transparent: 'rgba(203,213,224,0.1)',
         alpha: 'rgba(31,36,100,0.1)', // #1F2464 / gray.4
         alphaBlue: 'rgba(90,103,216,0.1)', //#5a67d8
+        alphaYellow: 'rgba(236,201,75,0.3)', // #ECC94B / yellow.5
         darkGray: tailwind.colors.gray[8],
         text: tailwind.colors.gray[8],
         altText: tailwind.colors.gray[4],

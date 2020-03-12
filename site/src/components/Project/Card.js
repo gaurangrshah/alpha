@@ -12,7 +12,7 @@ const Card = ({
   thumb = "",
   title = 'Project Title',
   categories = ['branding', 'app', 'design'],
-  open = () => console.log('defaultOpen', id),
+  open = false,
   toggleExpanded,
   children = {},
   ...props
@@ -27,7 +27,7 @@ const Card = ({
       sx={linkStyles}
       onClick={() => toggleExpanded(id)}
     >
-      <Box sx={cardStyles}>
+      <Box sx={{ ...cardStyles(open) }}>
         <Box sx={cardImgStyles(thumbBg)}>
           <Image src={aaryaa} />
         </Box>
@@ -57,7 +57,8 @@ const linkStyles = {
   px: 2,
 }
 
-const cardStyles = {
+const cardStyles = (open) => ({
+  cursor: 'pointer',
   mx: 'auto',
   display: 'flex',
   flexDirection: 'column',
@@ -72,11 +73,11 @@ const cardStyles = {
   fontSize: [4, 5],
   fontWeight: `medium`,
   lineHeight: 1,
-  bg: 'alphaBlue',
+  bg: !open ? 'alphaBlue' : 'alphaYellow',
   transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
   "&:hover": {
     cursor: 'pointer',
-    bg: 'alpha',
+    bg: !open ? 'alpha' : 'alphaBlue',
     color: `white !important`,
     transform: `translateY(-10px)`,
     boxShadow: `xl`,
@@ -85,7 +86,7 @@ const cardStyles = {
     my: 3,
     py: 3,
   }
-}
+})
 
 const cardImgStyles = (thumbBg) => ({
   position: 'relative',

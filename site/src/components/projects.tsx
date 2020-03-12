@@ -17,12 +17,8 @@ const RenderProject = ({
   children = {}
 }) => {
 
-  const { id, thumb, client, categories } = proj
+  const { id = 0, thumb = "", client = "", categories = [] } = proj
   const [expanded, toggleExpanded] = useToggleContext(ExpandedContext)
-  // const toggleExpanded = (id) => {
-  //   console.log('expanded', expanded, 'id', id)
-  //   return setExpanded(expanded ? 0 : id)
-  // }
   return (
     <React.Fragment>
       <Card
@@ -31,11 +27,11 @@ const RenderProject = ({
         title={client}
         categories={categories}
         toggleExpanded={toggleExpanded}
+        open={expanded === id}
       />
       <ContentHolder
         i={id}
         expanded={expanded}
-        // toggleExpanded={toggleExpanded}
         gridArea="contentHolder"
         children={children}
         proj={proj} />
@@ -47,9 +43,6 @@ const Projects = ({ offset }: { offset: number }) => {
 
   const [projects, setProjects] = useContext(ProjectContext)
   const [expanded] = useToggleContext(ExpandedContext)
-
-
-  const isOpen = expanded === 0
 
   return (
     <div className='holder' sx={{ position: 'relative' }}>
@@ -84,8 +77,10 @@ const Projects = ({ offset }: { offset: number }) => {
               }
             }}
           >
+
             <h2>Projects</h2>
             <ProjectFilter />
+
           </Inner>
           <Inner sx={{ display: 'none' }}>
             Test
@@ -95,20 +90,16 @@ const Projects = ({ offset }: { offset: number }) => {
               position: 'relative',
               zIndex: 1,
               display: [`block`, null, `grid`],
-              gridGap: !isOpen ? [4, 4, 4, 5] : [6, 6, 6, 6,],
+              gridGap: [4, 4, 4, 5],
               gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
               gridTemplateAreas: `". ." "holder holder" ". ."`,
             }}
             >
-              {projects.map((project) => (
-                <RenderProject key={project.id} proj={project}>
-                  <div
-                    sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                  >
 
-                  </div>
-                </RenderProject>
+              {projects.map((project) => (
+                <RenderProject key={project.id} proj={{ ...project }} />
               ))}
+
             </div>
           </Inner>
         </div>

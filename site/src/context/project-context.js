@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react'
 import ProjectFilter from '../components/Project/ProjectFilter';
 
 const projs = [
-  { id: 1, client: 'Aarya', categories: ['app', 'branding'] },
-  { id: 2, client: 'Aarya', categories: ['app', 'branding'] },
-  { id: 3, client: 'Aarya', categories: ['app', 'branding'] },
-  { id: 4, client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 1, thumb: "", client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 2, thumb: "", client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 3, thumb: "", client: 'Aarya', categories: ['app', 'branding'] },
+  { id: 4, thumb: "", client: 'Aarya', categories: ['app', 'branding'] },
 ]
 
 const ExpandedContext = React.createContext([0, () => { }])
