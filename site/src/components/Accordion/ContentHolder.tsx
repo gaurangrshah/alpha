@@ -1,4 +1,6 @@
 import React from "react";
+/** @jsx jsx */
+import { jsx, useThemeUI } from "theme-ui"
 import { motion, AnimatePresence } from "framer-motion";
 
 export const ContentHolder = ({
@@ -17,13 +19,16 @@ export const ContentHolder = ({
           exit="collapsed"
           variants={{ collapsed: { scale: 0 }, open: { scale: 1 } }}
           transition={{ duration: 0.4 }}
+          sx={{
+            background: 'alphaYellow',
+            borderRadius: 'lg',
+            boxShadow: 'lg',
+          }}
           style={{
-            padding: '20px',
+            padding: '10px',
             transformOrigin: 'center center',
             gridArea: 'holder',
-            background: 'gray',
             minHeight: '100px',
-            border: '1px solid red',
           }}>
           <motion.div
             initial="hidden"
@@ -32,6 +37,9 @@ export const ContentHolder = ({
             variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.2 } }}
             style={{
               color: 'white',
+              background: 'darkblue',
+              minHeight: '100px',
+              padding: '10px',
               ...props
             }}>
             {JSON.stringify(proj, null, 2) || children}
