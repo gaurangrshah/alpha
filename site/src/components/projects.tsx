@@ -41,8 +41,11 @@ const RenderProject = ({
 
 const Projects = ({ offset }: { offset: number }) => {
 
-  const [projects, setProjects] = useContext(ProjectContext)
+  const [projects, setProjects, filterProjects, resetProjectsFilter] = useContext(ProjectContext)
   const [expanded] = useToggleContext(ExpandedContext)
+  const projs = projects
+  console.log('test2', projs)
+
 
   return (
     <div className='holder' sx={{ position: 'relative' }}>
@@ -79,7 +82,7 @@ const Projects = ({ offset }: { offset: number }) => {
           >
 
             <h2>Projects</h2>
-            <ProjectFilter />
+            <ProjectFilter projs={projs} filter={filterProjects} reset={resetProjectsFilter} />
 
           </Inner>
           <Inner sx={{ display: 'none' }}>
@@ -96,8 +99,8 @@ const Projects = ({ offset }: { offset: number }) => {
             }}
             >
 
-              {projects.map((project) => (
-                <RenderProject key={project.id} proj={{ ...project }} />
+              {projs.map((proj) => (
+                <RenderProject key={proj.id} proj={{ ...proj }} />
               ))}
 
             </div>
